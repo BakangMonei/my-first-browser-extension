@@ -32,10 +32,11 @@ function App() {
   };
 
   // Function to play audio
-  const playAudio = (text) => {
-    const speech = new SpeechSynthesisUtterance();
-    speech.text = text;
-    speechSynthesis.speak(speech);
+  const playAudio = (audioUrl) => {
+    const audio = new Audio(audioUrl);
+    audio.play().catch((error) => {
+      console.error("Error playing audio:", error);
+    });
   };
 
   return (
@@ -92,15 +93,9 @@ function App() {
                       {meaning.definition}
                     </p>
                     {meaning.synonyms && (
-                      <a
-                        href="https://github.com/BakangMonei"
-                        className="block px-2 py-1 font-mono bg-blue-500 text-white rounded-md focus:outline-none hover:bg-blue-600 transition duration-200 ease-in-out"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        <FaPlay /> {/* Replace "Play Audio" with play icon */}
+                      <p className="ext-black dark:text-white font-mono">
                         Synonyms: {meaning.synonyms.join(", ")}
-                      </a>
+                      </p>
                     )}
                   </div>
                 ))}
