@@ -1,0 +1,17 @@
+{
+    "manifest_version": 2,
+    "name": "NeizaTheeDev Dictionary",
+    "version": "1.0",
+    "description": "Search Any English Word",
+    "permissions": ["activeTab"],
+    "browser_action": {
+      "default_popup": "App.js",
+      "default_icon": "neizatheedev.png"
+    },
+    "icons": {
+      "16": "neizatheedev.png",
+      "48": "neizatheedev.png",
+      "128": "neizatheedev.png"
+    }
+  }
+  

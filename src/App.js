@@ -42,7 +42,9 @@ function App() {
     // <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100  ">
     <div>
       <div className="dark:bg-sky-900 dark:border-white bg-white rounded-lg shadow-md p-4 w-full sm:max-w-md border-2  border-gray-800">
-        <h1 className="text-2xl font-semibold mb-4 text-center text-black dark:text-white">Dictionary Extension</h1>
+        <h1 className="text-2xl font-semibold mb-4 text-center text-black dark:text-white">
+          Dictionary Extension
+        </h1>
         <div className="flex items-center border-b border-gray-200 pb-4">
           <input
             type="text"
@@ -65,23 +67,30 @@ function App() {
           ) : (
             searchResults.map((result) => (
               <div key={result.id} className="mb-4">
-                <h2 className="text-xl font-semibold text-black dark:text-white text-center">{result.word}</h2>
-                {result.phonetics && result.phonetics.map((phonetic, index) => (
-                  <div key={index}>
-                    <p className="ext-black dark:text-white font-mono">Phonetic: {phonetic.text}</p>
-                    {phonetic.audio && (
-                      <button
-                        className="px-2 py-1 font-mono bg-blue-500 text-white rounded-md focus:outline-none hover:bg-blue-600 transition duration-200 ease-in-out"
-                        onClick={() => playAudio(phonetic.audio)}
-                      >
-                        <FaPlay /> {/* Replace "Play Audio" with play icon */}
-                      </button>
-                    )}
-                  </div>
-                ))}
+                <h2 className="text-xl font-semibold text-black dark:text-white text-center">
+                  {result.word}
+                </h2>
+                {result.phonetics &&
+                  result.phonetics.map((phonetic, index) => (
+                    <div key={index}>
+                      <p className="ext-black dark:text-white font-mono">
+                        Phonetic: {phonetic.text}
+                      </p>
+                      {phonetic.audio && (
+                        <button
+                          className="px-2 py-1 font-mono bg-blue-500 text-white rounded-md focus:outline-none hover:bg-blue-600 transition duration-200 ease-in-out"
+                          onClick={() => playAudio(phonetic.audio)}
+                        >
+                          <FaPlay /> {/* Replace "Play Audio" with play icon */}
+                        </button>
+                      )}
+                    </div>
+                  ))}
                 {result.meanings.map((meaning, index) => (
                   <div key={index}>
-                    <p className="ext-black dark:text-white font-mono">{meaning.definition}</p>
+                    <p className="ext-black dark:text-white font-mono">
+                      {meaning.definition}
+                    </p>
                     {meaning.synonyms && (
                       <a
                         href="https://github.com/BakangMonei"
@@ -100,10 +109,15 @@ function App() {
           )}
         </div>
         <p className="text-black dark:text-white font-mono text-center mt-4">
-        <a href="https://github.com/BakangMonei" target="_blank" rel="noopener noreferrer">@Author: BakangMonei</a>
-      </p>
+          <a
+            href="https://github.com/BakangMonei"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            @Author: BakangMonei
+          </a>
+        </p>
       </div>
-      
     </div>
   );
 }
