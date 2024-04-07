@@ -51,13 +51,22 @@ To run the extension in DevMode:
 ### Usage
 Once the extension is installed and enabled, you can use it to search for word definitions:
 
-## 1. Typing Word
+**1. Typing Word**
 - Click on the extension icon in your browser toolbar to open the popup.
 - Type a word into the search input field.
 - Click the "Search" button or press Enter to search for the word.
 - View the results displayed in the popup.
 
-Additionally, you can listen to the pronunciation of words:
+**2. Pronouncing Words**
 
-Click on the "Listen" button next to the phonetic transcription of a word.
-The audio pronunciation will be played.
+- Click on the "Listen" icon next to the phonetic transcription of a word.
+- The audio pronunciation will be played.
+
+### Built With
+
+    **ReactJs:** JavaScript library for building user interfaces.
+    **Tailwind CSS:** A utility-first CSS framework for rapid UI development.
+
+## Author
+
+Monei Bakang Mothuti
