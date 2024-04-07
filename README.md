@@ -24,13 +24,40 @@ Follow these instructions to get a copy of the project up and running on your lo
     ```
 
 3. Install dependencies:
- ```
- npm i
- ```
+     ```
+    npm i
+    ```
 
 ### Development
 
 To run the extension in DevMode:
 
 1. Build the extension:
+    ```
+    npm run build
+    ```
 
+2. Load the extension in your browser:
+
+    - Open your browser (e.g., Chrome, Firefox).
+    - Navigate to chrome://extensions/ (for Chrome) or about:addons (for Firefox).
+    - Enable **Developer mode**.
+    - Click on "Load unpacked" or "Load temporary add-on".
+    - Select the build directory within your project folder.
+
+
+3. The extension should now be installed and ready to use in DevMode.
+
+### Usage
+Once the extension is installed and enabled, you can use it to search for word definitions:
+
+## 1. Typing Word
+- Click on the extension icon in your browser toolbar to open the popup.
+- Type a word into the search input field.
+- Click the "Search" button or press Enter to search for the word.
+- View the results displayed in the popup.
+
+Additionally, you can listen to the pronunciation of words:
+
+Click on the "Listen" button next to the phonetic transcription of a word.
+The audio pronunciation will be played.
