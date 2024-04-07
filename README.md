@@ -64,8 +64,8 @@ Once the extension is installed and enabled, you can use it to search for word d
 
 ### Built With
 
-    **ReactJs:** JavaScript library for building user interfaces.
-    **Tailwind CSS:** A utility-first CSS framework for rapid UI development.
+ **ReactJs:** JavaScript library for building user interfaces.
+ **Tailwind CSS:** A utility-first CSS framework for rapid UI development.
 
 ## Author
 
