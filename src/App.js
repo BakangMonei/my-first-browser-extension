@@ -1,10 +1,33 @@
-import React, { useState } from "react";
-import { FaPause, FaPlay } from "react-icons/fa";
+import React, { useState, useRef } from "react";
+import { FaPause, FaPlay, FaMicrophone } from "react-icons/fa";
 
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
   const [searchResults, setSearchResults] = useState([]);
   const [loading, setLoading] = useState(false);
+  const recognition = useRef(null);
+
+  // Initialize speech recognition
+  if ("webkitSpeechRecognition" in window) {
+    recognition.current = new window.webkitSpeechRecognition();
+    recognition.current.continuous = false;
+    recognition.current.lang = "en-US";
+    recognition.current.interimResults = false;
+  } else {
+    console.error("Speech recognition not supported");
+  }
+
+  // Function to handle speech recognition
+  const handleSpeechRecognition = () => {
+    if (recognition.current) {
+      setLoading(true);
+      recognition.current.onresult = (event) => {
+        const transcript = event.results[0][0].transcript;
+        setSearchTerm(transcript);
+      };
+      recognition.current.start();
+    }
+  };
 
   // Function to handle search
   const handleSearch = async () => {
@@ -40,7 +63,6 @@ function App() {
   };
 
   return (
-    // <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100  ">
     <div>
       <div className="dark:bg-sky-900 dark:border-white bg-white rounded-lg shadow-md p-4 w-full sm:max-w-md border-2  border-gray-800">
         <h1 className="text-2xl font-semibold mb-4 text-center text-black dark:text-white">
@@ -55,12 +77,20 @@ function App() {
             onChange={(e) => setSearchTerm(e.target.value)}
           />
           <button
+            className="ml-2 font-mono   dark:text-white rounded-md focus:outline-none transition duration-200 ease-in-out"
+            onClick={handleSpeechRecognition}
+            disabled={loading}
+          >
+            <FaMicrophone />
+          </button>
+          <button
             className="ml-2 px-4 py-2 font-mono bg-sky-500 dark:bg-black text-white dark:text-white rounded-md focus:outline-none hover:bg-blue-600 dark:hover:bg-gray-900 transition duration-200 ease-in-out"
             onClick={handleSearch}
             disabled={loading}
           >
             {loading ? "Searching..." : "Search"}
           </button>
+          
         </div>
         <div className="mt-4">
           {searchResults.length === 0 ? (
@@ -82,7 +112,7 @@ function App() {
                           className="px-2 py-1 font-mono bg-blue-500 text-white rounded-md focus:outline-none hover:bg-blue-600 transition duration-200 ease-in-out"
                           onClick={() => playAudio(phonetic.audio)}
                         >
-                          <FaPlay /> {/* Replace "Play Audio" with play icon */}
+                          <FaPlay />
                         </button>
                       )}
                     </div>
