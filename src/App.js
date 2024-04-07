@@ -63,7 +63,7 @@ function App() {
   };
 
   return (
-    <div>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100  ">
       <div className="dark:bg-sky-900 dark:border-white bg-white rounded-lg shadow-md p-4 w-full sm:max-w-md border-2  border-gray-800">
         <h1 className="text-2xl font-semibold mb-4 text-center text-black dark:text-white">
           Dictionary Extension

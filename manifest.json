@@ -5,7 +5,7 @@
     "description": "Search Any English Word",
     "permissions": ["activeTab"],
     "browser_action": {
-      "default_popup": "App.js",
+      "default_popup": "./public/index.html",
       "default_icon": "neizatheedev.png"
     },
     "icons": {
